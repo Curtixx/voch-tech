@@ -6,6 +6,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ config('app.name', 'Vouch') }}</title>
+        <link rel="shortcut icon" type="imagex/png" href="./imgs/logo.jpeg">
 
         <!-- Fonts -->
 

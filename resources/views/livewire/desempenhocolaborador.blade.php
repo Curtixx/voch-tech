@@ -35,10 +35,13 @@
 
                     <div class="mt-2">
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="nome_fantasia"
-                            for="colaborador">Nota desempenho: </label>
+                            for="nota_desempenho">Nota desempenho: </label>
                         <input type="number" placeholder="Coloque uma nota para o colaborador..." min="0"
                             max="10" wire:model="nota_desempenho"
                             class="w-80 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        @error('nota_desempenho')
+                            {{ $message }}
+                        @enderror
                     </div>
 
                     <div class="mt-6">

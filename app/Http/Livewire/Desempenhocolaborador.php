@@ -29,8 +29,8 @@ class Desempenhocolaborador extends Component
 
     public function createAndUpdate()
     {
+        $this->validate();
         try {
-            $this->validate();
             CargoColaborador::where('colaborador_id', $this->colaborador)->update(['nota_desempenho' => $this->nota_desempenho]);
             return redirect('/desempenho')->with('msg', 'Colaborador atualizado!!');
         } catch (\Exception $e) {

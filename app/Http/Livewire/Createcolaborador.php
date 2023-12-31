@@ -37,8 +37,8 @@ class Createcolaborador extends Component
 
     public function create()
     {
+        $this->validate();
         try {
-            $this->validate();
 
             $cpf = preg_replace("/\D/", '', $this->cpf);
             $this->cpf = preg_replace("/(\d{3})(\d{3})(\d{3})(\d{2})/", "\$1.\$2.\$3-\$4", $cpf);
