@@ -5,6 +5,15 @@
         </h2>
     </x-slot>
 
+    <div class="container-fluid">
+        @if (session('msg'))
+            <p class="text-lg bg-green-300 text-green-700 border-2 w-full mb-0 text-center p-2">{{ session('msg') }}</p>
+        @endif
+        @if (session('erro'))
+            <p class="text-lg bg-red-300 text-red-700 border-2 w-full mb-0 text-center p-2">{{ session('erro') }}</p>
+        @endif
+    </div>
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">

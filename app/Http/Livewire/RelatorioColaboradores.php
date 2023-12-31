@@ -14,8 +14,13 @@ class RelatorioColaboradores extends Component
 
     public function render()
     {
-        $colaboradores = CargoColaborador::orderBy('id', 'ASC')->paginate(15);
+        try {
+            $colaboradores = CargoColaborador::orderBy('id', 'ASC')->paginate(15);
 
-        return view('livewire.relatorio-colaboradores', ['colaboradores' => $colaboradores,]);
+            return view('livewire.relatorio-colaboradores', ['colaboradores' => $colaboradores,]);
+        } catch (\Exception $e) {
+            return redirect('/')->with('erro', 'Ocorreu algum problema, tente novamente!!!!');
+        }
+
     }
 }

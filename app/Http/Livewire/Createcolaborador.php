@@ -26,9 +26,13 @@ class Createcolaborador extends Component
 
     public function render()
     {
-        $cargos = Cargo::orderBy('cargo')->get();
-        $unidades = Unidade::orderBy('nome_fantasia')->get();
-        return view('livewire.createcolaborador', ['cargos' => $cargos, 'unidades' => $unidades]);
+        try {
+            $cargos = Cargo::orderBy('cargo')->get();
+            $unidades = Unidade::orderBy('nome_fantasia')->get();
+            return view('livewire.createcolaborador', ['cargos' => $cargos, 'unidades' => $unidades]);
+        } catch (\Exception $e) {
+            return redirect('/')->with('erro', 'Ocorreu algum problema, tente novamente!!!!');
+        }
     }
 
     public function create()
@@ -41,7 +45,7 @@ class Createcolaborador extends Component
 
             $validation = Colaborador::where('email', $this->email)->orWhere('cpf', $this->cpf)->first();
 
-            if($validation) {
+            if ($validation) {
                 return redirect('/colaborador')->with('erro', 'Já existe um colaborador com esse email e/ou CPF!!');
             }
 
@@ -63,6 +67,5 @@ class Createcolaborador extends Component
         } catch (\Exception $e) {
             return redirect('/colaborador')->with('erro', 'Ocorreu algum problema, tente novamente!!');
         }
-
     }
 }

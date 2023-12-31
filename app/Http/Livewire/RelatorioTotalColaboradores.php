@@ -15,9 +15,13 @@ class RelatorioTotalColaboradores extends Component
 
     public function render()
     {
+        try {
 
-        $colaboradores = Colaborador::selectRaw('COUNT(nome) as total, unidade_id')->groupBy('unidade_id')->paginate(15);
-        $totalColaboradores = Colaborador::count('id');
-        return view('livewire.relatorio-total-colaboradores', ['colaboradores' => $colaboradores, 'totalColaboradores' => $totalColaboradores]);
+            $colaboradores = Colaborador::selectRaw('COUNT(nome) as total, unidade_id')->groupBy('unidade_id')->paginate(15);
+            $totalColaboradores = Colaborador::count('id');
+            return view('livewire.relatorio-total-colaboradores', ['colaboradores' => $colaboradores, 'totalColaboradores' => $totalColaboradores]);
+        } catch (\Exception $e) {
+            return redirect('/')->with('erro', 'Ocorreu algum problema, tente novamente!!!!');
+        }
     }
 }

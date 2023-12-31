@@ -19,9 +19,14 @@ class Createunidade extends Component
 
     public function render()
     {
-        $unidades = Unidade::orderBy('nome_fantasia')->get();
+        try {
+            $unidades = Unidade::orderBy('nome_fantasia')->get();
 
-        return view('livewire.createunidade', ['unidades' => $unidades]);
+            return view('livewire.createunidade', ['unidades' => $unidades]);
+        } catch (\Exception $e) {
+            return redirect('/')->with('erro', 'Ocorreu algum problema, tente novamente!!!!');
+        }
+
     }
 
     public function create(){

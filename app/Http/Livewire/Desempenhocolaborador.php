@@ -18,8 +18,13 @@ class Desempenhocolaborador extends Component
 
     public function render()
     {
-        $colaboradores = Colaborador::orderBy('nome')->get();
-        return view('livewire.desempenhocolaborador', ['colaboradores' => $colaboradores]);
+        try {
+            $colaboradores = Colaborador::orderBy('nome')->get();
+            return view('livewire.desempenhocolaborador', ['colaboradores' => $colaboradores]);
+        } catch(\Exception $e) {
+            return redirect('/')->with('erro', 'Ocorreu algum problema, tente novamente!!!!');
+        }
+
     }
 
     public function createAndUpdate()
