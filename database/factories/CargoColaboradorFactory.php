@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Colaborador;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,7 +19,7 @@ class CargoColaboradorFactory extends Factory
     {
         return [
             'cargo_id' => rand(1, 10),
-            'colaborador_id' => rand(1, 100),
+            'colaborador_id' => Colaborador::all()->random()->id,
             'nota_desempenho' => null,
         ];
     }
