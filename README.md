@@ -39,9 +39,6 @@ Para a realização do projeto foi usado:
   - Eloquent ORM é a ORM padrão do Laravel que facilita e deixa mais intuitivo as consultas com o banco
   - TailwindCSS para a estilização da aplicação melhorando o UX 
 
-## :relaxed: Agradecimentos
-- Muito divertido realizar esse projeto principalmente na hora de fazer os relatorios, pois tinha que pegar dados de várias tabelas, mas me diverti bastante fazendo ele pois tenho uma grande experiencia com laravel e com livewire.
-- Obrigado pela a oportunidade Voch Tech.
 
 ## Redes
 - <a href="https://www.linkedin.com/in/henrique-curtis-26325822a/">Linkedin</a>
