@@ -21,6 +21,7 @@
 - Abra o laragon inicie os serviços e abra o terminal
 - Crie uma nova conexão no MysqlWorkbech com a configuração padrão
 - Rode a seguinte linha de codígo na query do mysql: `create database laravel; use laravel;`
+- No .env mude as configurações do banco
 - Após abrir o terminal clone o projeto: `git clone https://github.com/Curtixx/voch-tech.git`
 - Entre norepositório e rode os seguintes comandos:
   - `composer require` para instalar as dependências do composer
